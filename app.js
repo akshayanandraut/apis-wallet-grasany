@@ -246,6 +246,6 @@ function config() {
 
 var server = app.listen(PORT, () => {
     config();
-    log.info("Server running on port ${PORT}");
+    log.info("Server running on port {}",PORT);
 });
 
