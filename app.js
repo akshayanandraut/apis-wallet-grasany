@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
         "uptimeInMilliseconds": uptime * 1000,
         "uptimeInSeconds": uptime,
         "uptimeInMinutes": uptime / 60,
-        "uptimeInHours": uptime / 360,
+        "uptimeInHours": uptime / 3600,
         "uptimeInDays": uptime / 86400,
         "appStartedOn": new Date(startedAt).toString()
 
@@ -88,7 +88,7 @@ app.post("/wallet/transactions", jsonParser, (req, res) => {
     try {
         transactionsRef.once("value").then(function (snapshot) {
 
-                snapshot.forEach(function(data) {
+                snapshot.forEach(function (data) {
                     var transaction = data.val();
                     if (!transaction.val().comments.contains("Error [ERR_HTTP_HEADERS_SENT]")) {
                         console.log(transaction);
@@ -246,6 +246,6 @@ function config() {
 
 var server = app.listen(PORT, () => {
     config();
-    log.info("Server running on port"+PORT);  
+    log.info("Server running on port " + PORT);
 });
 
