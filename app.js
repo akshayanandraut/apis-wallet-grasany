@@ -243,7 +243,7 @@ function config() {
     log.info("Wallets and Transactions initialized");
 }
 
-var server = app.listen(3030, () => {
+var server = app.listen(8081, () => {
     config();
     log.info("Server running on port 3030");
 });
