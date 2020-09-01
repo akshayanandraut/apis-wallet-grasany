@@ -9,6 +9,7 @@ var serviceAccount = require("./grasany-wallet-firebase-adminsdk-ll0m3-c379904c1
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 var UniqueTransactionId = require('uniqid');
+const PORT = process.env.PORT || 8081;
 
 const log = require('pino')();
 
@@ -243,8 +244,8 @@ function config() {
     log.info("Wallets and Transactions initialized");
 }
 
-var server = app.listen(8081, () => {
+var server = app.listen(PORT, () => {
     config();
-    log.info("Server running on port 3030");
+    log.info("Server running on port ${PORT}");
 });
 
